@@ -487,7 +487,7 @@ public final class TsidFactory {
 			if (this.nodeBits == null) {
 				if (Settings.getNodeCount() != null) {
 					// use property or variable
-					this.nodeBits = (int) Math.ceil(Math.log(Settings.getNodeCount()) / Math.log(2));
+					this.nodeBits = Integer.SIZE - Integer.numberOfLeadingZeros(Settings.getNodeCount() - 1);
 				} else {
 					// use default bit length: 10 bits
 					this.nodeBits = TsidFactory.NODE_BITS_1024;
